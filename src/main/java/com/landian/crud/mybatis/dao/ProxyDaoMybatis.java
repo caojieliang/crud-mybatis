@@ -1,13 +1,11 @@
 package com.landian.crud.mybatis.dao;
 
 import com.landian.crud.core.dao.ProxyDao;
-import com.landian.crud.core.dao.SQLPageUtils;
 import com.landian.crud.mybatis.mapper.MybatisDao;
 import com.landian.sql.jpa.context.IdContainer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -42,12 +40,6 @@ public class ProxyDaoMybatis implements ProxyDao {
     public List<Map<String, Object>> doFind(String sql) {
         List<Map<String, Object>> mapList = mybatisDao.doFind(sql);
         return mapList;
-    }
-
-    @Override
-    public List<Map<String, Object>> doFindPage(String sql, int start, int pageSize) {
-        String sqlTarget = SQLPageUtils.appendLimit(sql, start, pageSize);
-        return doFind(sqlTarget);
     }
 
     @Override
