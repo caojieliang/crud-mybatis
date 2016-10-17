@@ -1,7 +1,7 @@
 package com.landian.crud.mybatis.provider;
 
 import com.landian.crud.core.provider.ProviderConstant;
-import com.landian.crud.core.sql.ProxyInsertSQLBuilder;
+import com.landian.crud.core.sql.InsertSQLBuilder;
 import com.landian.sql.builder.SqlBuilder;
 import com.landian.sql.jpa.context.BeanContext;
 import org.apache.log4j.Logger;
@@ -27,7 +27,7 @@ public class ProxyInsertProvider extends SqlBuilder{
 		try {
 			Object bean = parameters.get(ProviderConstant.bean);
 			BeanContext beanContext = (BeanContext) parameters.get(ProviderConstant.beanContext);
-			return ProxyInsertSQLBuilder.insertSQL(bean,beanContext);
+			return InsertSQLBuilder.insertSQL(bean,beanContext);
 		} catch (Exception e) {
 			throw new RuntimeException(e.getMessage());
 		}
@@ -37,7 +37,7 @@ public class ProxyInsertProvider extends SqlBuilder{
 		try {
 			Object bean = parameters.get(ProviderConstant.bean);
 			BeanContext beanContext = (BeanContext) parameters.get(ProviderConstant.beanContext);
-			return ProxyInsertSQLBuilder.insertWithIdSQL(bean,beanContext);
+			return InsertSQLBuilder.insertWithIdSQL(bean,beanContext);
 		} catch (Exception e) {
 			throw new RuntimeException(e.getMessage());
 		}

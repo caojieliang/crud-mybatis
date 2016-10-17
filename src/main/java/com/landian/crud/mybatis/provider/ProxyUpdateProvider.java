@@ -1,7 +1,7 @@
 package com.landian.crud.mybatis.provider;
 
 import com.landian.crud.core.provider.ProviderConstant;
-import com.landian.crud.core.sql.ProxyUpdateSQLBuilder;
+import com.landian.crud.core.sql.UpdateSQLBuilder;
 import com.landian.sql.builder.SqlBuilder;
 import com.landian.sql.jpa.context.BeanContext;
 import org.apache.log4j.Logger;
@@ -18,7 +18,7 @@ public class ProxyUpdateProvider extends SqlBuilder {
 		try {
 			Object bean = parameters.get(ProviderConstant.bean);
 			BeanContext beanContext = (BeanContext) parameters.get(ProviderConstant.beanContext);
-			return ProxyUpdateSQLBuilder.updateNotNull(bean,beanContext);
+			return UpdateSQLBuilder.updateNotNull(bean,beanContext);
 		} catch (Exception e) {
 			throw new RuntimeException(e.getMessage());
 		}
