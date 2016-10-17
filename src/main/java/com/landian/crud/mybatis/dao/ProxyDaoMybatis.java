@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public class ProxyDaoMybatis implements ProxyDao {
@@ -38,12 +39,13 @@ public class ProxyDaoMybatis implements ProxyDao {
     }
 
     @Override
-    public List<HashMap<String, Object>> doFind(String sql) {
-        return mybatisDao.doFind(sql);
+    public List<Map<String, Object>> doFind(String sql) {
+        List<Map<String, Object>> mapList = mybatisDao.doFind(sql);
+        return mapList;
     }
 
     @Override
-    public List<HashMap<String, Object>> doFindPage(String sql, int start, int pageSize) {
+    public List<Map<String, Object>> doFindPage(String sql, int start, int pageSize) {
         String sqlTarget = SQLPageUtils.appendLimit(sql, start, pageSize);
         return doFind(sqlTarget);
     }

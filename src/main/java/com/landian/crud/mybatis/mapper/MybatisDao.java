@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 代理版的单表通用增删改查v2.0 逐渐完善中
@@ -21,7 +22,7 @@ public interface MybatisDao {
 
 	@SelectProvider(type = CommonProvider.class, method = CommonProvider.doSQL)
 	@ResultType(HashMap.class)
-	List<HashMap<String, Object>> doFind(@Param(ProviderConstant.sql) String sql);
+	List<Map<String, Object>> doFind(@Param(ProviderConstant.sql) String sql);
 
 
 	@Options(useGeneratedKeys = true, keyProperty = ProviderConstant.idOGNL)
