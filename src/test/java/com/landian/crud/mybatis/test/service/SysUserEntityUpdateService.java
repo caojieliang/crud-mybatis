@@ -12,8 +12,8 @@ import org.springframework.stereotype.Service;
 public class SysUserEntityUpdateService extends AbstractUpdateService<SysUserEntity> {
 
     @Override
-    public BeanContext<SysUserEntity> getBeanContext() {
-        return SysUserEntityContext.getBeanContext();
+    public BeanContext getBeanContext() {
+        return SysUserEntityContext.beanContext;
     }
 
 }
